@@ -37,17 +37,22 @@
         <div class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
 
-            <li> <a class="nav-item nav-link" href="#" class="btn btn-simple">Post</a> </li>
-            <li> <a class="nav-item nav-link" href="#" class="btn btn-simple">Groups</a> </li>
-            <li> <a class="nav-item nav-link" href="#" class="btn btn-simple">Create group</a> </li>
+            <li> <a class="nav-item nav-link" href="{% url 'posts:create' %}" class="btn btn-simple">Post</a> </li>
+            <li> <a class="nav-item nav-link" href="{% url 'groups:all' %}" class="btn btn-simple">Groups</a> </li>
+            <li> <a class="nav-item nav-link" href="{% url 'groups:create' %}" class="btn btn-simple">Create group</a> </li>
             <li> <a class="nav-item nav-link" href="{% url 'accounts:logout' %}" class="btn btn-simple">Log out</a> </li>
 
           {% else %}
-            <a class="nav-item nav-link" href="#"class="btn btn-simple">Groups</a>
+            <a class="nav-item nav-link" href="{% url 'groups:all' %}" class="btn btn-simple">Groups</a>
             <a class="nav-item nav-link" href="{% url 'accounts:login' %}" class="btn btn-simple">Log in</a>
             <a class="nav-item nav-link" href="{% url 'accounts:signup' %}" class="btn btn-simple">Sign up</a>
           {% endif %}
         </div>
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search'>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
       </div>
     </nav>
 
